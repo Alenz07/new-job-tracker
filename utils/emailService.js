@@ -5,7 +5,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'mewzeno194@gmail.com', // Your Gmail
-        pass: 'goousxyceajagsqu'     // Gmail App Password (not regular password)
+        pass: ''     // Gmail App Password (not regular password)
     }
 })
 
@@ -36,5 +36,6 @@ async function sendReminderEmail(userEmail, userName, reminder) {
         return false
     }
 }
+
 
 module.exports = { sendReminderEmail }
