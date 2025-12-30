@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Reminder - JobTracker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            color: #374151;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        button {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button[type="submit"] {
+            background-color: #2563eb;
+            color: white;
+        }
+        button[type="submit"]:hover {
+            background-color: #1d4ed8;
+        }
+        button[type="button"] {
+            background-color: #6b7280;
+            color: white;
+        }
+        button[type="button"]:hover {
+            background-color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <div class="container">
+        <h2>Add Reminder</h2>
+        
+        <form id="reminderForm" onsubmit="addReminder(event)">
+            <div class="form-group">
+                <label for="title">Title *</label>
+                <input type="text" id="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" rows="4" placeholder="Add details about the reminder..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="reminderDate">Reminder Date & Time *</label>
+                <input type="datetime-local" id="reminderDate" required>
+            </div>
+
+            <div class="button-group">
+                <button type="submit">Save Reminder</button>
+                <button type="button" onclick="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/reminder.js"></script>
+</body>
+</html>

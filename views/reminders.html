@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminders - JobTracker</title>
+    <link rel="stylesheet" href="/css/jobTrack.css">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>JobTracker</h1>
+            </div>
+            <div class="profile-section">
+                <div class="profile-dropdown">
+                    <button class="profile-btn">Profile ▼</button>
+                    <div class="dropdown-content">
+                        <a href="/userProfile">View Profile</a>
+                        <a href="#" onclick="logout()">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/jobTracker" class="nav-link">Dashboard</a>
+            <a href="/addJob" class="nav-link">Applications</a>
+            <a href="/companies" class="nav-link">Companies</a>
+            <a href="/reminders" class="nav-link active">Reminders</a>
+            <a href="/userProfile" class="nav-link">Profile</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2>Reminders</h2>
+                <div class="action-buttons">
+                    <a href="/addReminder" class="btn btn-primary" style="text-decoration: none;">
+                        ➕ Add Reminder
+                    </a>
+                </div>
+            </section>
+
+            <!-- Filter Section -->
+            <section class="search-section">
+                <div class="search-controls">
+                    <div class="filters">
+                        <select class="filter-select" id="statusFilter" onchange="filterReminders()">
+                            <option value="">All Reminders</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reminders List -->
+            <section id="remindersList" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <!-- Reminders will be loaded here -->
+            </section>
+
+            <!-- Pagination -->
+            <section class="pagination" id="pagination"></section>
+        </div>
+    </main>
+
+    <script src="/reminders.js"></script>
+</body>
+</html>

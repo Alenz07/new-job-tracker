@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTracker - Dashboard</title>
+    <link rel="stylesheet" href="/css/jobTrack.css">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>JobTracker</h1>
+            </div>
+            <div class="profile-section">
+                <div class="profile-dropdown">
+                    <button class="profile-btn">Profile ▼</button>
+                    <div class="dropdown-content">
+                        <a href="userProfile">View Profile</a>
+                      
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/jobTrack.html" class="nav-link active">Dashboard</a>
+            <a href="#applications-list" class="nav-link">Applications</a>
+            <a href="/companies" class="nav-link">Companies</a>
+            <a href="/userProfile" class="nav-link">Profile</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Quick Actions Section -->
+            <section class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <a href="/addJob" class="btn btn-primary"  style="text-decoration: none;">
+                        ➕ Add Application
+                      </a>
+                      <a href="/addCompany" class="btn btn-primary"  style="text-decoration: none;">
+                        ➕ Add Company
+                      </a>
+                      <a href="/addReminder" class="btn btn-primary"  style="text-decoration: none;">
+                        ➕ Set Reminder
+                      </a>
+                </div>
+            </section>
+
+            <!-- Dashboard Statistics -->
+            <section class="dashboard-stats">
+                <h2>Dashboard Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card stat-applied">
+                        <div class="stat-icon">📝</div>
+                        <div class="stat-content">
+                            <h3>Applied</h3>
+                            <p class="stat-number" id="applied"></p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-interview">
+                        <div class="stat-icon">💼</div>
+                        <div class="stat-content">
+                            <h3>Interview</h3>
+                            <p class="stat-number" id="interview"></p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-offer">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3>Offers</h3>
+                            <p class="stat-number" id="offer"></p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-rejected">
+                        <div class="stat-icon">❌</div>
+                        <div class="stat-content">
+                            <h3>Rejected</h3>
+                            <p class="stat-number" id="rejected"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+          
+
+            <!-- Performance Metrics -->
+            <section class="performance-metrics">
+                <h2>Performance Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>Success Rate</h3>
+                        <p class="metric-value" id="successRate">8%</p>
+                        <p class="metric-description">(Offers / Applied)</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Response Rate</h3>
+                        <p class="metric-value" id="responseRate">40%</p>
+                        <p class="metric-description">(Interview + Offer)</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Pending Applications</h3>
+                        <p class="metric-value" id="pendingRate">20%</p>
+                        <p class="metric-description">Awaiting response</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search, Filter & Sort Section -->
+            <section class="search-section">
+                <h2>Job Applications</h2>
+                <div class="search-controls">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search by job title or company..." class="search-input">
+                        <button class="btn btn-search">🔍 Search</button>
+                    </div>
+                    <div class="filters">
+                        <select class="filter-select">
+                            <option value="">Filter by Status</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                        <select class="filter-select">
+                            <option value="">Sort by</option>
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                        <input type="date" class="filter-input" placeholder="From Date">
+                        <input type="date" class="filter-input" placeholder="To Date">
+                    </div>
+                </div>
+            </section>
+
+            <section class="applications-list" id="applicationsList">
+                <!-- cards will be injected here -->
+            </section>
+
+            <!-- Pagination -->
+            <section class="pagination">
+                <button class="pagination-btn">« Previous</button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">Next »</button>
+            </section>
+
+        </div>
+    </main>
+<script src="/jobTrack.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Job Application</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <h1>Add New Job Application</h1>
+
+    <form id="applicationForm" onsubmit="addJobApplication(event)">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <label>Company Name:</label><br>
+        <input type="text" name="company_name" id="companyName" required><br><br>
+
+        <label>Job Title:</label><br>
+        <input type="text" name="job_title" id="jobTitle" required><br><br>
+
+        <label>Application Date:</label><br>
+        <input type="date" name="application_date" id="appDate" required><br><br>
+
+        <label>Status:</label><br>
+        <select name="status" id="status" required>
+            <option value="">-- Select --</option>
+            <option value="applied">Applied</option>
+            <option value="interview">Interview</option>
+            <option value="rejected">Rejected</option>
+            <option value="offer">Offer</option>
+        </select><br><br>
+
+        <label>Notes:</label><br>
+        <textarea name="notes" rows="5" cols="40" id="notes"></textarea><br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+    <script src="/applications.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Page background */
+body {
+    background-color: #f4f6f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Heading */
+h1 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+/* Form container */
+form {
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    color: #34495e;
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* Inputs & textarea */
+input[type="text"],
+input[type="email"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #dcdde1;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+/* Read-only email */
+input[readonly] {
+    background-color: #f1f2f6;
+    cursor: not-allowed;
+}
+
+/* Focus effect */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Textarea resize */
+textarea {
+    resize: vertical;
+}
+
+/* Submit button */
+button {
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Small screens */
+@media (max-width: 500px) {
+    form {
+        padding: 20px;
+    }
+}

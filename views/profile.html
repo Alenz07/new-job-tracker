@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <link rel="stylesheet" href="/css/profile.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <h1>User Profile</h1>
+    
+    <form id="profileForm" onsubmit="updateProfile(event)">
+        
+        <label>Name:</label><br>
+        <input type="text" name="name" id="nameUser" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" id="emailUser" readonly><br><br>
+
+        <label>Resume (PDF, DOC, DOCX - Max 5MB):</label><br>
+        <input type="file" name="resume" id="resumeFile" accept=".pdf,.doc,.docx"><br>
+        <small id="currentResume" style="color: #666; font-size: 12px;"></small><br><br>
+
+        <label>Education:</label><br>
+        <textarea name="education" rows="4" cols="40" id="educationUser"></textarea><br><br>
+
+        <label>Skills:</label><br>
+        <textarea name="skills" rows="4" cols="40" id="skillsUser"></textarea><br><br>
+
+        <label>Experience:</label><br>
+        <textarea name="experience" rows="6" cols="40" id="experienceUser"></textarea><br><br>
+
+        <button type="submit">Save</button>
+
+    </form>
+<script src="/profile.js"></script>
+</body>
+</html>

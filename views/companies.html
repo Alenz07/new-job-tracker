@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Companies - JobTracker</title>
+    <link rel="stylesheet" href="/css/jobTrack.css">
+    <style>
+        .company-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .company-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        .company-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .detail-item {
+            color: #6b7280;
+        }
+        .detail-item strong {
+            color: #374151;
+        }
+        .btn-group {
+            display: flex;
+            gap: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>JobTracker</h1>
+            </div>
+            <div class="profile-section">
+                <div class="profile-dropdown">
+                    <button class="profile-btn">Profile ▼</button>
+                    <div class="dropdown-content">
+                        <a href="/userProfile">View Profile</a>
+                        <a href="#" onclick="logout()">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/jobTracker" class="nav-link">Dashboard</a>
+            <a href="/addJob" class="nav-link">Applications</a>
+            <a href="/companies" class="nav-link active">Companies</a>
+            <a href="/reminders" class="nav-link">Reminders</a>
+            <a href="/userProfile" class="nav-link">Profile</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2>Company Research</h2>
+                <div class="action-buttons">
+                    <a href="/addCompany" class="btn btn-primary" style="text-decoration: none;">
+                        ➕ Add Company
+                    </a>
+                </div>
+            </section>
+
+            <!-- Search Section -->
+            <section class="search-section">
+                <h2>My Companies</h2>
+                <div class="search-controls">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search companies..." class="search-input" id="searchInput">
+                        <button class="btn btn-search" onclick="searchCompanies()">🔍 Search</button>
+                    </div>
+                    <div class="filters">
+                        <select class="filter-select" id="industryFilter" onchange="filterCompanies()">
+                            <option value="">All Industries</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Education">Education</option>
+                            <option value="Retail">Retail</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Companies List -->
+            <section id="companiesList">
+                <!-- Companies will be loaded here -->
+            </section>
+
+            <!-- Pagination -->
+            <section class="pagination" id="pagination">
+                <!-- Pagination buttons will be here -->
+            </section>
+        </div>
+    </main>
+
+    <script src="/companies.js"></script>
+</body>
+</html>
